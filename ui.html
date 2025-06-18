@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ServEase - Find & Book Services</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <img src="logo.jpg" alt="ServEase Logo">
+            <h1>ServEase</h1>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html">Login</a>
+            <a href="register.html" class="btn">Sign Up</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+    <h2>Your One-Stop Service Marketplace</h2>
+    <p>Book professional services instantly from trusted providers.</p>
+    
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Search for services...">
+        <button class="search-btn">🔍</button>
+    </div>
+
+    <a href="#services" class="btn">Explore Services</a>
+    </section>
+    <section class="categories" id="services">
+        <h2>Our Services</h2>
+        <div class="service-grid">
+            <div class="service-item" onclick="openPopup('Home Cleaning', 'hc.jpg', '$50/hr', 'Professional home cleaning services at your doorstep.')">
+                <img src="hc.jpg" alt="Home Cleaning">
+                <h3>Home Cleaning</h3>
+            </div>
+            <div class="service-item" onclick="openPopup('Electrician', 'electrician.jpg', '$45/hr', 'Expert electrical repairs and installations.')">
+                <img src="electrician.jpg" alt="Electrician">
+                <h3>Electrician</h3>
+            </div>
+            <div class="service-item" onclick="openPopup('Plumbing', 'plum.jpg', '$30/hr', 'Reliable plumbing services for homes and offices.')">
+                <img src="plum.jpg" alt="Plumbing">
+                <h3>Plumbing</h3>
+            </div>
+            <div class="service-item" onclick="openPopup('Salon & Beauty', 'bs.jpg', '$50/session', 'Professional beauty and grooming services at your location.')">
+                <img src="bs.jpg" alt="Salon & Beauty">
+                <h3>Salon & Beauty</h3>
+            </div>
+            <div class="service-item" onclick="openPopup('Fitness Training', 'ft.jpg', '$40/hr', 'Get fit with personal training sessions.')">
+                <img src="ft.jpg" alt="Fitness Training">
+                <h3>Fitness Training</h3>
+            </div>
+            <div class="service-item" onclick="openPopup('Tutoring', 'tutor.jpg', '$25/hr', 'Expert tutors for all subjects and grades.')">
+                <img src="tutor.jpg" alt="Tutoring">
+                <h3>Tutoring</h3>
+            </div>
+            <div class="service-item" onclick="openPopup('Photography', 'photo.jpg', '$80/session', 'Professional photography for events and portraits.')">
+                <img src="photo.jpg" alt="Photography">
+                <h3>Photography</h3>
+            </div>
+            <div class="service-item" onclick="openPopup('Tech Support', 'ts.jpg', '$35/hr', 'Reliable tech support for all devices and software.')">
+                <img src="ts.jpg" alt="Tech Support">
+                <h3>Tech Support</h3>
+            </div>
+        </div>
+
+        <p id="no-results" style="display: none; text-align: center; color: red;">No matching services found.</p>
+    </section>
+
+    <!-- Popup Modal -->
+    <div id="servicePopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <img id="popupImage" src="" alt="Service Image">
+            <h3 id="popupName"></h3>
+            <p id="popupDesc"></p>
+            <span class="price" id="popupPrice"></span>
+            <a id="bookNowLink" href="#" class="book-btn">view</a>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function openPopup(name, image, price, desc) {
+            document.getElementById("popupName").innerText = name;
+            document.getElementById("popupImage").src = image;
+            document.getElementById("popupDesc").innerText = desc;
+            document.getElementById("popupPrice").innerText = price;
+            document.getElementById("bookNowLink").href = `login.html`;
+            document.getElementById("servicePopup").style.display = "flex";
+        }
+
+        function closePopup() {
+            document.getElementById("servicePopup").style.display = "none";
+        }
+        
+
+        function searchServices() {
+            let input = document.getElementById("searchInput").value.toLowerCase();
+            let serviceItems = document.querySelectorAll(".service-item");
+            let noResults = document.getElementById("no-results");
+            let found = false;
+        
+            serviceItems.forEach(service => {
+                let serviceName = service.querySelector("h3").textContent.toLowerCase();
+                if (serviceName.includes(input)) {
+                    service.style.display = "block"; // Show matching service
+                    found = true;
+                } else {
+                    service.style.display = "none"; // Hide non-matching services
+                }
+            });
+        
+            // Show "No matching results" if no services match the search
+            noResults.style.display = found ? "none" : "block";
+        }
+        
+    </script>
+
+    <footer>
+        <p>&copy; 2025 ServEase. All Rights Reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+<script src="script.js"></script>
+</html>

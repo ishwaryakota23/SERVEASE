@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Service - ServEase</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url(albg.jpg);
+        }
+        nav {
+        
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5px;
+            width: 100%;
+        }
+        nav .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+    
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .service-img {
+            width: 50%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .btn {
+            background: #7b4397;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #4a90e2;
+        }
+        .details-container {
+            display: flex;
+            align-items: center; /* Align text and button vertically */
+            gap: 10px; /* Space between text and button */
+        }
+        
+        .book-btn {
+            background-color:lightcoral;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: background 0.3s;
+        }
+        
+        .book-btn:hover {
+            background-color: #e59420;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">ServEase</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2 id="service-name">Loading...</h2>
+        <img id="service-image" class="service-img" src="" alt="Service Image">
+        <p id="service-desc"></p>
+        <h3>Pricing: <span id="service-price"></span></h3>
+        <div class="details-container">
+            <h3>For more details:</h3>
+            <form action="login.html" method="get">
+                <button type="submit" class="book-btn">Log In</button>
+            </form>
+        </div>
+        
+
+        
+    </div>
+
+    <script>
+        // Get URL parameters
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get("name");
+        const image = params.get("image");
+        const price = params.get("price");
+        const desc = params.get("desc");
+
+        // Populate service details
+        document.getElementById("service-name").innerText = name;
+        document.getElementById("service-image").src = image;
+        document.getElementById("service-desc").innerText = desc;
+        document.getElementById("service-price").innerText = `$${price}`;
+
+        // Set form hidden inputs
+        document.getElementById("service-name-input").value = name;
+        document.getElementById("service-price-input").value = price;
+    </script>
+
+</body>
+</html>

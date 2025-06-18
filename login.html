@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - ServEase</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(albg.jpg);
+            padding-top: 70px;
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        nav .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #f5a623;
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+        }
+
+        .tab-buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .tab-buttons button {
+            padding: 10px;
+            width: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border: none;
+            background: #ddd;
+            transition: 0.3s;
+        }
+
+        .tab-buttons button.active {
+            background: #0d0d0d;
+            color: white;
+        }
+
+        .form-container {
+            display: none;
+        }
+
+        .form-container.active {
+            display: block;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(to right,#001f3f, #00d2ff);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        button[type="submit"]:hover {
+            background: #f5a623;
+        }
+
+        .signup-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .signup-link a {
+            color: #f5a623;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #0d0d0d;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">ServEase</div>
+        <ul>
+            <li><a href="ui.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="register.html">Signup</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="tab-buttons">
+            <button class="tab-btn active" onclick="showForm('customer')">Customer Login</button>
+            <button class="tab-btn" onclick="showForm('freelancer')">Freelancer Login</button>
+        </div>
+
+        <!-- Customer Login Form -->
+        <div id="customer-form" class="form-container active">
+            <h2>Customer Login</h2>
+            <form action="cust_login.php" method="POST">
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+            <div class="signup-link">
+                <p>New Customer? <a href="register.html">Sign up here</a></p>
+            </div>
+        </div>
+
+        <!-- Freelancer Login Form -->
+        <div id="freelancer-form" class="form-container">
+            <h2>Freelancer Login</h2>
+            <form action="free_login.php" method="POST">
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+            <div class="signup-link">
+                <p>New Freelancer? <a href="register.html">Sign up here</a></p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <script>
+        function showForm(type) {
+            document.getElementById("customer-form").classList.remove("active");
+            document.getElementById("freelancer-form").classList.remove("active");
+            document.querySelector(".tab-btn.active").classList.remove("active");
+
+            if (type === 'customer') {
+                document.getElementById("customer-form").classList.add("active");
+                document.querySelector(".tab-buttons button:first-child").classList.add("active");
+            } else {
+                document.getElementById("freelancer-form").classList.add("active");
+                document.querySelector(".tab-buttons button:last-child").classList.add("active");
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - ServEase</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image:url(albg.jpg);
+            padding-top: 70px;
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        nav .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #f5a623;
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+           
+        }
+
+        .tab-buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .tab-buttons button {
+            padding: 10px;
+            width: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border: none;
+            background: #ddd;
+            transition: 0.3s;
+        }
+
+        .tab-buttons button.active {
+            background: #0d0d0d;
+            color: white;
+        }
+
+        .form-container {
+            display: none;
+        }
+
+        .form-container.active {
+            display: block;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(to right,#001f3f, #00d2ff);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        button[type="submit"]:hover {
+            background: #f5a623;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #0d0d0d;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">ServEase</div>
+        <ul>
+            <li><a href="ui.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="tab-buttons">
+            <button class="tab-btn active" onclick="showForm('customer')">Signup as Customer</button>
+            <button class="tab-btn" onclick="showForm('freelancer')">Signup as Freelancer</button>
+        </div>
+
+        <!-- Customer Signup Form -->
+        <div id="customer-form" class="form-container active">
+            <h2>Customer Signup</h2>
+            <!--<form action="register.php" method="POST">
+                <input type="text" name="fullname" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="text" name="phone" placeholder="Phone Number" required>
+                <input type="text" name="address" placeholder="Address" required>
+                <button type="submit">Signup</button>
+            </form>-->
+                <form action="register.php" method="POST">
+                    <input type="hidden" name="user_type" value="customer">
+                    <input type="text" name="fullname" placeholder="Full Name" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <input type="text" name="phone" placeholder="Phone Number" required>
+                    <input type="text" name="address" placeholder="Address" required>
+                    <button type="submit">Signup</button>
+                </form>
+        </div>
+
+        <!-- Freelancer Signup Form -->
+        <div id="freelancer-form" class="form-container">
+            <h2>Freelancer Signup</h2>
+            <!--<form action="register.php" method="POST">
+                <input type="text" name="fullname" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="text" name="phone" placeholder="Phone Number" required>
+                <select name="service_category" required>
+                    <option value="">Select Service Category</option>
+                    <option value="Home Cleaning">Home Cleaning</option>
+                    <option value="Electrician">Electrician</option>
+                    <option value="Plumbing">Plumbing</option>
+                    <option value="Salon & Beauty">Salon & Beauty</option>
+                    <option value="Fitness Training">Fitness Training</option>
+                    <option value="Tutoring">Tutoring</option>
+                    <option value="Photography">Photography</option>
+                    <option value="Tech Support">Tech Support</option>
+                </select>
+                <input type="text" name="experience" placeholder="Years of Experience" required>
+                <button type="submit">Signup</button>
+            </form>-->
+            <form action="register.php" method="POST">
+                <input type="hidden" name="user_type" value="freelancer">
+                <input type="text" name="fullname" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="text" name="phone" placeholder="Phone Number" required>
+                <input type="text" name="address" placeholder="Address" required>
+                <select name="service_category" required>
+                    <option value="">Select Service Category</option>
+                    <option value="Home Cleaning">Home Cleaning</option>
+                    <option value="Electrician">Electrician</option>
+                    <option value="Plumbing">Plumbing</option>
+                    <option value="Salon & Beauty">Salon & Beauty</option>
+                    <option value="Fitness Training">Fitness Training</option>
+                    <option value="Tutoring">Tutoring</option>
+                    <option value="Photography">Photography</option>
+                    <option value="Tech Support">Tech Support</option>
+                </select>
+                <input type="text" name="experience" placeholder="Years of Experience" required>
+                <button type="submit">Signup</button>
+            </form>
+            
+        </div>
+    </div>
+
+
+    <script>
+        function showForm(type) {
+            document.getElementById("customer-form").classList.remove("active");
+            document.getElementById("freelancer-form").classList.remove("active");
+            document.querySelector(".tab-btn.active").classList.remove("active");
+
+            if (type === 'customer') {
+                document.getElementById("customer-form").classList.add("active");
+                document.querySelector(".tab-buttons button:first-child").classList.add("active");
+            } else {
+                document.getElementById("freelancer-form").classList.add("active");
+                document.querySelector(".tab-buttons button:last-child").classList.add("active");
+            }
+        }
+    </script>
+
+</body>
+</html>

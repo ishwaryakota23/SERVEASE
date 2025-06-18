@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - ServEase</title>
+    <style>
+        /*nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+
+        }*/
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5px;  /* Reduce padding */
+            position:absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+
+        }
+        
+
+        nav .logo {
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #f5a623;
+            text-decoration: underline;
+        }
+
+        /* ✅ FIXES PAGE CONTENT BEING HIDDEN UNDER NAV */
+        body {
+            padding-top: 60px; 
+            background: #f4f4f4;
+            font-family: Arial, sans-serif;
+            background-image: url(albg.jpg);
+        }
+
+        /* ✅ MOBILE MENU (FOR SMALL SCREENS) */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            padding: 40px;
+
+            color: white;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+        }
+
+        .page-header input {
+            width: 50%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        /* Service Section */
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Service Cards */
+        .service-card {
+            background: white;
+            border-radius: 10px;
+           /* box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);*/
+            padding: 20px;
+            text-align: center;
+            transition: 0.3s ease-in-out;
+        }
+
+        .service-card:hover {
+            transform: scale(1.05);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #54150d;
+        }
+
+        /* Book Button */
+        .book-btn {
+            background: #0d0c0d;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .book-btn:hover {
+            background: #979da4;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">ServEase</div>
+        <ul>
+            <li><a href="ui.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Title -->
+    <header class="page-header">
+        <h1>Our Services</h1>
+        <p>Choose from a variety of professional services.</p>
+        <input type="text" id="search" placeholder="Search for services..." />
+    </header>
+
+    <!-- Service Cards Container -->
+    <section class="services-container">
+        
+        <div class="service-card" data-category="home">
+            <img src="hc.jpg" alt="Home Cleaning">
+            <h3>Home Cleaning</h3>
+            <p>Professional home cleaning services at your doorstep.</p>
+            <a href="bb.html?name=Home Cleaning&image=hc.jpg&price=50/hr&desc=Professional home cleaning services at your doorstep." class="book-btn">know more</a>
+        </div>
+        
+        <div class="service-card" data-category="Electrician">
+            <img src="electrician.jpg" alt="Electrician">
+            <h3>Electrician</h3>
+            <p>Expert electrical repairs and installations.</p>
+            <a href="bb.html?name=Electrician&image=electrician.jpg&price=45/hr&desc=Expert electrical repairs and installations." class="book-btn">know more</a>
+        </div>
+        
+        <div class="service-card" data-category="Plumbing">
+            <img src="plum.jpg" alt="Plumbing">
+            <h3>Plumbing</h3>
+            <p>Reliable plumbing services for homes and offices.</p>
+            <a href="bb.html?name=Plumbing&image=plum.jpg&price=30/hr&desc=Reliable plumbing services for homes and offices." class="book-btn">know more</a>
+        </div>
+        
+        <div class="service-card" data-category="Salon & Beauty">
+            <img src="bs.jpg" alt="Salon & Beauty">
+            <h3>Salon & Beauty</h3>
+            <p>Professional beauty and grooming services at your location.</p>
+            <a href="bb.html?name=Salon & Beauty&image=bs.jpg&price=50/session&desc=Professional beauty and grooming services at your location." class="book-btn">know more</a>
+        </div>
+        
+        <div class="service-card" data-category="Fitness Training">
+            <img src="ft.jpg" alt="Fitness Training">
+            <h3>Fitness Training</h3>
+            <p>Get fit with personal training sessions.</p>
+            <a href="bb.html?name=Fitness Training&image=ft.jpg&price=40/hr&desc=Get fit with personal training sessions." class="book-btn">know more</a>
+        </div>
+        
+        <div class="service-card" data-category="Tutoring">
+            <img src="tutor.jpg" alt="Tutoring">
+            <h3>Tutoring</h3>
+            <p>Expert tutors for all subjects and grades.</p>
+            <a href="bb.html?name=Tutoring&image=tutor.jpg&price=25/hr&desc=Expert tutors for all subjects and grades." class="book-btn">know more</a>
+        </div>
+        
+        <div class="service-card" data-category="Photography">
+            <img src="photo.jpg" alt="Photography">
+            <h3>Photography</h3>
+            <p>Professional photography for events and portraits.</p>
+            <a href="bb.html?name=Photography&image=photo.jpg&price=80/session&desc=Professional photography for events and portraits." class="book-btn">know more</a>
+        </div>
+        
+        <div class="service-card" data-category="Tech Support">
+            <img src="ts.jpg" alt="Tech Support">
+            <h3>Tech Support</h3>
+            <p>Reliable tech support for all devices and software.</p>
+            <a href="bb.html?name=Tech Support&image=ts.jpg&price=35/hr&desc=Reliable tech support for all devices and software." class="book-btn">know more</a>
+        </div>
+        
+        </section>
+        
+
+        <!-- No Results Message -->
+        <p id="no-results" style="display: none;">No matching services found.</p>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 ServEase. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const searchInput = document.getElementById("search");
+            const serviceCards = document.querySelectorAll(".service-card");
+            const noResultsMsg = document.getElementById("no-results");
+
+            searchInput.addEventListener("keyup", () => {
+                let filter = searchInput.value.toLowerCase();
+                let found = false;
+
+                serviceCards.forEach(card => {
+                    let serviceName = card.querySelector("h3").innerText.toLowerCase();
+                    let category = card.dataset.category.toLowerCase();
+
+                    if (serviceName.includes(filter) || category.includes(filter)) {
+                        card.style.display = "block";
+                        found = true;
+                    } else {
+                        card.style.display = "none";
+                    }
+                });
+
+                noResultsMsg.style.display = found ? "none" : "block";
+            });
+        });
+    </script>
+
+</body>
+</html>
