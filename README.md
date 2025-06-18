@@ -34,7 +34,6 @@ ServEase is a web-based platform that connects customers with skilled freelancer
 - **Database:** MySQL
 - **Others:** Sessions for login, basic security practices (e.g., password hashing recommended)
 
----
 
 
 ---
